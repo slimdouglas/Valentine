@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You 🤍</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ---------- GLOBAL ---------- */
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(#fff6f8, #fdecef);
+    color: #4a2f36;
+    overflow-x: hidden;
+}
+
+section {
+    min-height: 100vh;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1.2s ease;
+}
+
+.fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- TEXT ---------- */
+h1 {
+    font-weight: normal;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+p {
+    max-width: 700px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 10px 0;
+}
+
+/* ---------- MUSIC ---------- */
+#musicBtn {
+    margin-top: 30px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    background: #f5b7c7;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* ---------- PLAYFUL CARDS ---------- */
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.card {
+    background: #ffffffcc;
+    padding: 15px 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* ---------- HEART GAME ---------- */
+.hearts {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-top: 30px;
+}
+
+.heart {
+    position: absolute;
+    font-size: 2rem;
+    cursor: pointer;
+    animation: float 6s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+#heartMessage {
+    margin-top: 30px;
+    font-style: italic;
+}
+
+/* ---------- ASK SECTION ---------- */
+.buttons {
+    position: relative;
+    margin-top: 40px;
+    height: 150px;
+}
+
+button.choice {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    transition: transform 0.3s ease;
+}
+
+#yesBtn {
+    background: #f28db2;
+    color: white;
+    left: 40%;
+}
+
+#noBtn {
+    background: #e0a3b5;
+    color: white;
+    left: 55%;
+}
+
+/* YES shake */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* ---------- FINAL MESSAGE ---------- */
+#final {
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+    <!-- Replace src with your chosen soft instrumental -->
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- SECTION 1 -->
+<section class="fade">
+    <h1>Hi love 🤍</h1>
+    <p>
+        I made this slowly.<br>
+        With intention.<br>
+        And with you in my heart the whole time.
+    </p>
+    <p>
+        There’s no rush here.<br>
+        Take a breath.<br>
+        This is just for you my katbooty.
+    </p>
+    <button id="musicBtn">Play something soft 🎧</button>
+</section>
+
+<!-- SECTION 2 -->
+<section class="fade">
+    <p>You feel things deeply.</p>
+    <p>You love honestly, even when it’s scary.</p>
+    <p>You notice the small things most people miss.</p>
+    <p>You carry so much emotion in such a gentle way.</p>
+    <p>You love love… not loudly, but beautifully.</p>
+    <p><strong>And I see all of it.</strong></p>
+    <p><strong>I see you.</strong></p>
+</section>
+
+<!-- SECTION 3 -->
+<section class="fade">
+    <h1>Us, apparently 💭</h1>
+    <div class="cards">
+        <div class="card">Us trying to be serious people.</div>
+        <div class="card">Us overthinking one small thing and laughing five minutes later.</div>
+        <div class="card">Us being soft, emotional, and still chaotic.</div>
+        <div class="card">Us loving deeply and joking through it anyway.</div>
+    </div>
+</section>
+
+<!-- SECTION 4 -->
+<section class="fade">
+    <p>There’s something I want to show you.</p>
+    <p>But first… help me unlock it 🤍</p>
+
+    <div class="hearts">
+        <div class="heart" style="left:20%; top:40%">🤍</div>
+        <div class="heart" style="left:50%; top:20%">🤍</div>
+        <div class="heart" style="left:70%; top:50%">🤍</div>
+        <div class="heart" style="left:35%; top:60%">🤍</div>
+    </div>
+
+    <div id="heartMessage"></div>
+</section>
+
+<!-- SECTION 5 -->
+<section class="fade">
+    <p>I don’t love loudly.</p>
+    <p>I love intentionally.</p>
+    <p>I think about how you feel.</p>
+    <p>I think about how to love you gently.</p>
+    <p>I don’t always get it perfect.</p>
+    <p>But loving you feels natural to me.</p>
+</section>
+
+<!-- SECTION 6 -->
+<section class="fade">
+    <p>So this Valentine’s Day…</p>
+    <p>and not just for the day…</p>
+    <h1>Will you be my Valentine? 💌</h1>
+
+    <div class="buttons">
+        <button id="yesBtn" class="choice">Yes 🤍</button>
+        <button id="noBtn" class="choice">No</button>
+    </div>
+</section>
+
+<!-- SECTION 7 -->
+<section id="final">
+    <h1>I’m really glad it’s you 🌹</h1>
+    <p>
+        I don’t promise perfection.<br>
+        I promise presence.<br>
+        And a lot of laughing along the way.
+    </p>
+    <p>Happy Valentine’s Day, my love.</p>
+</section>
+
+<script>
+/* ---------- FADE IN ---------- */
+const faders = document.querySelectorAll('.fade');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.3 });
+
+faders.forEach(fade => observer.observe(fade));
+
+/* ---------- MUSIC ---------- */
+const music = document.getElementById('music');
+document.getElementById('musicBtn').onclick = () => {
+    music.volume = 0.5;
+    music.play();
+};
+
+/* ---------- HEART GAME ---------- */
+const messages = [
+    "You make love feel safe.",
+    "You remind me that softness is strength.",
+    "You make me want to show up better.",
+    "You make ordinary days feel warmer.",
+    "Loving you feels like choosing you—over and over."
+];
+
+let heartClicks = 0;
+document.querySelectorAll('.heart').forEach(heart => {
+    heart.onclick = () => {
+        if (heartClicks < messages.length) {
+            document.getElementById('heartMessage').innerText = messages[heartClicks];
+            heart.style.opacity = 0;
+            heartClicks++;
+        }
+    };
+});
+
+/* ---------- RUNAWAY NO BUTTON ---------- */
+const noBtn = document.getElementById('noBtn');
+const yesBtn = document.getElementById('yesBtn');
+let yesScale = 1;
+
+noBtn.addEventListener('mouseenter', () => {
+    const x = Math.random() * 60;
+    const y = Math.random() * 80;
+    noBtn.style.left = x + '%';
+    noBtn.style.top = y + '%';
+});
+
+/* ---------- IF NO IS CLICKED ---------- */
+noBtn.onclick = () => {
+    yesScale += 0.15;
+    yesBtn.style.transform = `scale(${yesScale})`;
+    yesBtn.style.animation = 'shake 0.4s';
+    setTimeout(() => yesBtn.style.animation = '', 400);
+};
+
+/* ---------- YES ---------- */
+yesBtn.onclick = () => {
+    document.querySelectorAll('section').forEach(s => s.style.display = 'none');
+    document.getElementById('final').style.display = 'flex';
+};
+</script>
+
+</body>
+</html>
